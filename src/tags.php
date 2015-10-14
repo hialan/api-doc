@@ -14,23 +14,3 @@
  * )
  */
 
-/**
- * @SWG\Tag(
- *   name="feeds",
- *   description="access to feeds"
- * )
- */
-
-/**
- * @SWG\Tag(
- *   name="market",
- *   description="market"
- * )
- */
-
-/**
- * @SWG\Tag(
- *   name="admin",
- *   description="manage functions"
- * )
- */
