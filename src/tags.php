@@ -23,8 +23,14 @@
 
 /**
  * @SWG\Tag(
- *   name="merchandise",
- *   description="access to merchandise"
+ *   name="market",
+ *   description="market"
  * )
  */
 
+/**
+ * @SWG\Tag(
+ *   name="admin",
+ *   description="manage functions"
+ * )
+ */

@@ -20,9 +20,6 @@ class UserController
      *   @SWG\Response(response="default", description="successful operation")
      * )
      */
-    public function createUser()
-    {
-    }
 
     /**
      * @SWG\Get(path="/user/login",
@@ -65,9 +62,6 @@ class UserController
      *   @SWG\Response(response=400, description="Invalid username/password supplied")
      * )
      */
-    public function loginUser()
-    {
-    }
 
     /**
      * @SWG\Get(path="/user/{username}",
@@ -88,9 +82,6 @@ class UserController
      *   @SWG\Response(response=404, description="User not found")
      * )
      */
-    public function getUserByName($username)
-    {
-    }
 
     /**
      * @SWG\Get(path="/user/{username}/followers",
@@ -147,6 +138,46 @@ class UserController
      */
 
     /**
+     * @SWG\Post(path="/user/{username}/follow",
+     *   tags={"user"},
+     *   summary="follow {username}",
+     *   description="",
+     *   operationId="getUserFollowings",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="username",
+     *     in="path",
+     *     description="The name that needs to be fetched. Use user1 for testing. ",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation"),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
+
+    /**
+     * @SWG\Post(path="/user/{username}/unfollow",
+     *   tags={"user"},
+     *   summary="unfollow {username}",
+     *   description="",
+     *   operationId="getUserFollowings",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="username",
+     *     in="path",
+     *     description="The name that needs to be fetched. Use user1 for testing. ",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation"),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
+
+    /**
      * @SWG\Put(path="/user/{username}",
      *   tags={"user"},
      *   summary="Updated user",
@@ -171,9 +202,6 @@ class UserController
      *   @SWG\Response(response=404, description="User not found")
      * )
      */
-    public function updateUser()
-    {
-    }
 
     /**
      * @SWG\Delete(path="/user/{username}",
@@ -193,13 +221,10 @@ class UserController
      *   @SWG\Response(response=404, description="User not found")
      * )
      */
-    public function deleteUser()
-    {
-    }
 
     /**
      * @SWG\Get(path="/user/{username}/feeds",
-     *   tags={"user", "feeds"},
+     *   tags={"user"},
      *   summary="看 {username} 的 feeds",
      *   description="",
      *   operationId="getUserFeeds",
@@ -215,7 +240,7 @@ class UserController
      *     @SWG\Schema(
      *       type="array",
      *       @SWG\Items(
-     *         ref="#/definitions/User"
+     *         ref="#/definitions/Comment"
      *       )
      *     )
      *   ),
@@ -226,7 +251,7 @@ class UserController
 
     /**
      * @SWG\Post(path="/user/{username}/feeds",
-     *   tags={"user", "feeds"},
+     *   tags={"user"},
      *   summary="在 {username} 的 feeds 發佈新訊息",
      *   description="",
      *   operationId="postUserFeeds",
@@ -243,7 +268,7 @@ class UserController
      *     in="body",
      *     description="在 {username} 的 feed 發布的訊息內容",
      *     required=true,
-     *     @SWG\Schema(ref="#/definitions/User")
+     *     @SWG\Schema(ref="#/definitions/Comment")
      *   ),
      *   @SWG\Response(response=200, description="successful operation", 
      *     @SWG\Schema(
@@ -259,12 +284,19 @@ class UserController
      */
 
     /**
-     * @SWG\Get(path="/user/merchandise",
-     *   tags={"user","merchandise"},
+     * @SWG\Get(path="/user/{username}/merchandises",
+     *   tags={"user"},
      *   summary="User 管理自己所有商品，包含上架中以及未上架的",
      *   description="",
      *   operationId="getUserOwnMerchandise",
      *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="username",
+     *     in="path",
+     *     description="The name that needs to be fetched. Use user1 for testing. ",
+     *     required=true,
+     *     type="string"
+     *   ),
      *   @SWG\Response(response=200, description="successful operation", 
      *     @SWG\Schema(
      *       type="array",
@@ -279,8 +311,8 @@ class UserController
      */
 
     /**
-     * @SWG\Get(path="/user/{username}/merchandise",
-     *   tags={"user","merchandise"},
+     * @SWG\Get(path="/user/{username}/market/merchandises",
+     *   tags={"user"},
      *   summary="查看 {username} 公開出來的商品",
      *   description="",
      *   operationId="getUserMerchandise",
@@ -304,5 +336,32 @@ class UserController
      *   @SWG\Response(response=404, description="User not found")
      * )
      */
-    
+
+    /**
+     * @SWG\Post(path="/user/{username}/market/merchandises",
+     *   tags={"user"},
+     *   summary="將商品在 brandstore 上架",
+     *   description="",
+     *   operationId="getBrandstoreMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="username",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="body",
+     *     in="body",
+     *     description="欲上架的商品",
+     *     required=true,
+     *     @SWG\Schema(
+     *       type="array",
+     *       @SWG\Items(ref="#/definitions/Merchandise")
+     *     )
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation")
+     * )
+     */
 }
