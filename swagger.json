@@ -19,36 +19,6 @@
         "http"
     ],
     "paths": {
-        "/brandstore": {
-            "post": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "Create brandstore",
-                "description": "This can only be done by the logged in user.",
-                "operationId": "createBrandStore",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "Created brand storeobject",
-                        "required": false,
-                        "schema": {
-                            "$ref": "#/definitions/BrandStore"
-                        }
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "successful operation"
-                    }
-                }
-            }
-        },
         "/user": {
             "post": {
                 "tags": [
@@ -404,6 +374,144 @@
                     }
                 }
             }
+        },
+        "/user/merchandise": {
+            "get": {
+                "tags": [
+                    "user",
+                    "merchandise"
+                ],
+                "summary": "User \u7ba1\u7406\u81ea\u5df1\u6240\u6709\u5546\u54c1\uff0c\u5305\u542b\u4e0a\u67b6\u4e2d\u4ee5\u53ca\u672a\u4e0a\u67b6\u7684",
+                "description": "",
+                "operationId": "getUserOwnMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Merchandise"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/user/{username}/merchandise": {
+            "get": {
+                "tags": [
+                    "user",
+                    "merchandise"
+                ],
+                "summary": "\u67e5\u770b {username} \u516c\u958b\u51fa\u4f86\u7684\u5546\u54c1",
+                "description": "",
+                "operationId": "getUserMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "The name that needs to be fetched. Use user1 for testing. ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Merchandise"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/brandstore": {
+            "post": {
+                "tags": [
+                    "brandstore"
+                ],
+                "summary": "Create brandstore",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "createBrandStore",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Created brand storeobject",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/BrandStore"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/brandstore/{id}/merchandises": {
+            "get": {
+                "tags": [
+                    "brandstore",
+                    "merchandise"
+                ],
+                "summary": "get merchandise list from specified brand store {id} ",
+                "description": "",
+                "operationId": "getBrandstoreMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "brandstore id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Merchandise"
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -422,6 +530,43 @@
             },
             "xml": {
                 "name": "##default"
+            }
+        },
+        "User": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "status": {
+                    "description": "User Status",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "picture": {
+                    "type": "string"
+                },
+                "created_time": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "xml": {
+                "name": "User"
             }
         },
         "Contact": {
@@ -443,8 +588,7 @@
         "BrandStore": {
             "properties": {
                 "id": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -462,38 +606,89 @@
                 "name": "BrandStore"
             }
         },
-        "User": {
+        "Comment": {
+            "properties": {
+                "id": {
+                    "description": "BrandStore status",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "user_id": {
+                    "$ref": "#/definitions/User"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "attachment_type": {
+                    "type": "string",
+                    "enum": [
+                        "url",
+                        "image"
+                    ]
+                },
+                "attachment_data": {
+                    "type": "string"
+                },
+                "created_time": {
+                    "description": "message create time",
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "xml": {
+                "name": "Comment"
+            }
+        },
+        "Merchandise": {
             "properties": {
                 "id": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "username": {
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "online",
+                        "offline"
+                    ]
+                },
+                "owner_type": {
+                    "type": "string",
+                    "enum": [
+                        "user",
+                        "brandstore"
+                    ]
+                },
+                "owner_id": {
                     "type": "string"
                 },
-                "firstName": {
+                "name": {
+                    "description": "product name",
                     "type": "string"
                 },
-                "lastName": {
+                "description": {
+                    "description": "product description",
                     "type": "string"
                 },
-                "email": {
+                "initial_price": {
+                    "description": "Initial price, for bid",
                     "type": "string"
                 },
-                "password": {
+                "buynow_price": {
+                    "description": "Initial price, for bid",
                     "type": "string"
                 },
-                "phone": {
+                "currency": {
+                    "description": "currency, follow ISO 4217 https://en.wikipedia.org/wiki/ISO_4217",
                     "type": "string"
                 },
-                "userStatus": {
-                    "description": "User Status",
-                    "type": "integer",
-                    "format": "int32"
+                "quantity": {
+                    "description": "quantity",
+                    "type": "integer"
                 }
             },
             "xml": {
-                "name": "User"
+                "name": "Merchandise"
             }
         }
     },
@@ -509,6 +704,10 @@
         {
             "name": "feeds",
             "description": "access to feeds"
+        },
+        {
+            "name": "merchandise",
+            "description": "access to merchandise"
         }
     ],
     "externalDocs": {

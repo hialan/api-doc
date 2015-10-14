@@ -1,7 +1,5 @@
 <?php
 
-// tag is like api category
-
 /**
  * @SWG\Tag(
  *   name="user",
@@ -22,3 +20,11 @@
  *   description="access to feeds"
  * )
  */
+
+/**
+ * @SWG\Tag(
+ *   name="merchandise",
+ *   description="access to merchandise"
+ * )
+ */
+

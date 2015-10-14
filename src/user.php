@@ -1,61 +1,5 @@
 <?php
 
-/**
- * @SWG\Definition(@SWG\Xml(name="User"))
- */
-class User
-{
-
-    /**
-     * @SWG\Property(format="int64")
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @SWG\Property()
-     * @var string
-     */
-    public $username;
-
-    /**
-     * @SWG\Property
-     * @var string
-     */
-    public $firstName;
-
-    /**
-     * @SWG\Property()
-     * @var string
-     */
-    public $lastName;
-
-    /**
-     * @var string
-     * @SWG\Property()
-     */
-    public $email;
-
-    /**
-     * @var string
-     * @SWG\Property()
-     */
-    public $password;
-
-    /**
-     * @var string
-     * @SWG\Property()
-     */
-    public $phone;
-
-    /**
-     * User Status
-     * @var int
-     * @SWG\Property(format="int32")
-     */
-    public $userStatus;
-}
-
 class UserController
 {
 
@@ -279,7 +223,6 @@ class UserController
      *   @SWG\Response(response=404, description="User not found")
      * )
      */
-     public function getUserFeeds() { }
 
     /**
      * @SWG\Post(path="/user/{username}/feeds",
@@ -314,4 +257,52 @@ class UserController
      *   @SWG\Response(response=404, description="User not found")
      * )
      */
+
+    /**
+     * @SWG\Get(path="/user/merchandise",
+     *   tags={"user","merchandise"},
+     *   summary="User 管理自己所有商品，包含上架中以及未上架的",
+     *   description="",
+     *   operationId="getUserOwnMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Response(response=200, description="successful operation", 
+     *     @SWG\Schema(
+     *       type="array",
+     *       @SWG\Items(
+     *         ref="#/definitions/Merchandise"
+     *       )
+     *     )
+     *   ),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
+
+    /**
+     * @SWG\Get(path="/user/{username}/merchandise",
+     *   tags={"user","merchandise"},
+     *   summary="查看 {username} 公開出來的商品",
+     *   description="",
+     *   operationId="getUserMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="username",
+     *     in="path",
+     *     description="The name that needs to be fetched. Use user1 for testing. ",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation", 
+     *     @SWG\Schema(
+     *       type="array",
+     *       @SWG\Items(
+     *         ref="#/definitions/Merchandise"
+     *       )
+     *     )
+     *   ),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
+    
 }

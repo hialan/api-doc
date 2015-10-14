@@ -1,58 +1,5 @@
 <?php
 
-/**
- * @SWG\Definition(@SWG\Xml(name="Contact"))
- */
-class Contact
-{
-
-    /**
-     * @SWG\Property()
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     * @SWG\Property()
-     */
-    public $email;
-
-    /**
-     * @var string
-     * @SWG\Property()
-     */
-    public $phone;
-}
-
-/**
- * @SWG\Definition(@SWG\Xml(name="BrandStore"))
- */
-class BrandStore
-{
-
-    /**
-     * @SWG\Property(type="integer",format="int64")
-     */
-    public $id;
-
-    /**
-     * @SWG\Property(type="string")
-     */
-    public $name;
-
-    /**
-     * @SWG\Property(ref="#/definitions/Contact")
-     */
-    public $contact;
-
-    /**
-     * BrandStore status
-     * @SWG\Property(type="integer",format="int32")
-     */
-    public $status;
-}
-
 class BrandStoreController
 {
     /**
@@ -73,5 +20,28 @@ class BrandStoreController
      * )
      */
 
-
+    /**
+     * @SWG\Get(path="/brandstore/{id}/merchandises",
+     *   tags={"brandstore", "merchandise"},
+     *   summary="get merchandise list from specified brand store {id} ",
+     *   description="",
+     *   operationId="getBrandstoreMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     description="brandstore id",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation",
+     *     @SWG\Schema(
+     *       type="array",
+     *       @SWG\Items(
+     *         ref="#/definitions/Merchandise"
+     *       )
+     *     )
+     *   )
+     * )
+     */
 }
