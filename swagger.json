@@ -1048,6 +1048,54 @@
             "xml": {
                 "name": "Merchandise"
             }
+        },
+        "Order": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "open",
+                        "closed"
+                    ]
+                },
+                "seller_type": {
+                    "type": "string",
+                    "enum": [
+                        "user",
+                        "merchandise"
+                    ]
+                },
+                "seller_id": {
+                    "type": "string"
+                },
+                "buyer_id": {
+                    "type": "string"
+                },
+                "merchandise_id": {
+                    "type": "string"
+                },
+                "checkout_price": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "created_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "closed_time": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "xml": {
+                "name": "Order"
+            }
         }
     },
     "tags": [
@@ -1058,18 +1106,6 @@
         {
             "name": "brandstore",
             "description": "access to brand store"
-        },
-        {
-            "name": "feeds",
-            "description": "access to feeds"
-        },
-        {
-            "name": "market",
-            "description": "market"
-        },
-        {
-            "name": "admin",
-            "description": "manage functions"
         }
     ],
     "externalDocs": {
