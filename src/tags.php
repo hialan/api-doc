@@ -16,7 +16,7 @@
 
 /**
  * @SWG\Tag(
- *   name="market",
- *   description="access to market"
+ *   name="channel",
+ *   description="access to channel"
  * )
  */

@@ -752,12 +752,12 @@
                 }
             }
         },
-        "/market/{market_id}": {
+        "/channel/{channel_id}": {
             "get": {
                 "tags": [
-                    "market"
+                    "channel"
                 ],
-                "summary": "\u53d6\u5f97 market \u8cc7\u8a0a",
+                "summary": "\u53d6\u5f97 channel \u8cc7\u8a0a",
                 "description": "",
                 "operationId": "getUserFeeds",
                 "produces": [
@@ -766,7 +766,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "market_id",
+                        "name": "channel_id",
                         "in": "path",
                         "description": "",
                         "required": true,
@@ -779,7 +779,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Market"
+                                "$ref": "#/definitions/Channel"
                             }
                         }
                     },
@@ -792,12 +792,12 @@
                 }
             }
         },
-        "/market/{market_id}/feeds": {
+        "/channel/{channel_id}/feeds": {
             "get": {
                 "tags": [
-                    "market"
+                    "channel"
                 ],
-                "summary": "\u770b {market} \u7684 feeds",
+                "summary": "\u770b {channel} \u7684 feeds",
                 "description": "",
                 "operationId": "getUserFeeds",
                 "produces": [
@@ -806,7 +806,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "market_id",
+                        "name": "channel_id",
                         "in": "path",
                         "description": "",
                         "required": true,
@@ -833,9 +833,9 @@
             },
             "post": {
                 "tags": [
-                    "market"
+                    "channel"
                 ],
-                "summary": "\u5728 {market_id} \u7684 feeds \u767c\u4f48\u65b0\u8a0a\u606f",
+                "summary": "\u5728 {channel_id} \u7684 feeds \u767c\u4f48\u65b0\u8a0a\u606f",
                 "description": "",
                 "operationId": "postUserFeeds",
                 "produces": [
@@ -844,7 +844,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "market_id",
+                        "name": "channel_id",
                         "in": "path",
                         "description": "",
                         "required": true,
@@ -853,7 +853,7 @@
                     {
                         "name": "body",
                         "in": "body",
-                        "description": "\u5728 {market_id} \u7684 feed \u767c\u5e03\u7684\u8a0a\u606f\u5167\u5bb9",
+                        "description": "\u5728 {channel_id} \u7684 feed \u767c\u5e03\u7684\u8a0a\u606f\u5167\u5bb9",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/Activity"
@@ -879,12 +879,12 @@
                 }
             }
         },
-        "/market/{market_id}/merchandises": {
+        "/channel/{channel_id}/merchandises": {
             "get": {
                 "tags": [
-                    "market"
+                    "channel"
                 ],
-                "summary": "\u67e5\u770b {market_id} \u516c\u958b\u51fa\u4f86\u7684\u5546\u54c1",
+                "summary": "\u67e5\u770b {channel_id} \u516c\u958b\u51fa\u4f86\u7684\u5546\u54c1",
                 "description": "",
                 "operationId": "getUserMerchandise",
                 "produces": [
@@ -920,7 +920,7 @@
             },
             "post": {
                 "tags": [
-                    "market"
+                    "channel"
                 ],
                 "summary": "\u5c07\u5546\u54c1\u5728\u6b64\u5546\u5e97\u4e0a\u67b6",
                 "description": "",
@@ -931,7 +931,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "market_id",
+                        "name": "channel_id",
                         "in": "path",
                         "description": "",
                         "required": true,
@@ -957,12 +957,12 @@
                 }
             }
         },
-        "/market/{market_id}/follow": {
+        "/channel/{channel_id}/follow": {
             "post": {
                 "tags": [
-                    "market"
+                    "channel"
                 ],
-                "summary": "follow {market_id}",
+                "summary": "follow {channel_id}",
                 "description": "",
                 "operationId": "getUserFollowings",
                 "produces": [
@@ -991,12 +991,12 @@
                 }
             }
         },
-        "/market/{market_id}/unfollow": {
+        "/channel/{channel_id}/unfollow": {
             "post": {
                 "tags": [
-                    "market"
+                    "channel"
                 ],
-                "summary": "unfollow {market_id}",
+                "summary": "unfollow {channel_id}",
                 "description": "",
                 "operationId": "getUserFollowings",
                 "produces": [
@@ -1005,7 +1005,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "market_id",
+                        "name": "channel_id",
                         "in": "path",
                         "description": "",
                         "required": true,
@@ -1025,10 +1025,10 @@
                 }
             }
         },
-        "/market/{market_id}/followers": {
+        "/channel/{channel_id}/followers": {
             "get": {
                 "tags": [
-                    "market"
+                    "channel"
                 ],
                 "summary": "Get collections of user IDs for every user following {username}",
                 "description": "",
@@ -1112,7 +1112,7 @@
                 "picture": {
                     "type": "string"
                 },
-                "market_id": {
+                "channel_id": {
                     "type": "string"
                 },
                 "created_time": {
@@ -1148,7 +1148,7 @@
                 "phone": {
                     "type": "string"
                 },
-                "market_id": {
+                "channel_id": {
                     "type": "string"
                 }
             },
@@ -1330,13 +1330,13 @@
                 "name": "Order"
             }
         },
-        "Market": {
+        "Channel": {
             "properties": {
                 "id": {
                     "type": "string"
                 },
                 "name": {
-                    "description": "market name",
+                    "description": "channel name",
                     "type": "string"
                 },
                 "closed_time": {
@@ -1345,7 +1345,7 @@
                 }
             },
             "xml": {
-                "name": "Market"
+                "name": "Channel"
             }
         }
     },
@@ -1359,8 +1359,8 @@
             "description": "access to brand store"
         },
         {
-            "name": "market",
-            "description": "access to market"
+            "name": "channel",
+            "description": "access to channel"
         }
     ],
     "externalDocs": {

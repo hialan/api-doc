@@ -1,15 +1,15 @@
 <?php
-class marketController
+class channelController
 {
     /**
-     * @SWG\Get(path="/market/{market_id}",
-     *   tags={"market"},
-     *   summary="取得 market 資訊",
+     * @SWG\Get(path="/channel/{channel_id}",
+     *   tags={"channel"},
+     *   summary="取得 channel 資訊",
      *   description="",
      *   operationId="getUserFeeds",
      *   produces={"application/xml", "application/json"},
      *   @SWG\Parameter(
-     *     name="market_id",
+     *     name="channel_id",
      *     in="path",
      *     description="",
      *     required=true,
@@ -19,7 +19,7 @@ class marketController
      *     @SWG\Schema(
      *       type="array",
      *       @SWG\Items(
-     *         ref="#/definitions/Market"
+     *         ref="#/definitions/Channel"
      *       )
      *     )
      *   ),
@@ -29,14 +29,14 @@ class marketController
      */
 
     /**
-     * @SWG\Get(path="/market/{market_id}/feeds",
-     *   tags={"market"},
-     *   summary="看 {market} 的 feeds",
+     * @SWG\Get(path="/channel/{channel_id}/feeds",
+     *   tags={"channel"},
+     *   summary="看 {channel} 的 feeds",
      *   description="",
      *   operationId="getUserFeeds",
      *   produces={"application/xml", "application/json"},
      *   @SWG\Parameter(
-     *     name="market_id",
+     *     name="channel_id",
      *     in="path",
      *     description="",
      *     required=true,
@@ -56,14 +56,14 @@ class marketController
      */
 
     /**
-     * @SWG\Post(path="/market/{market_id}/feeds",
-     *   tags={"market"},
-     *   summary="在 {market_id} 的 feeds 發佈新訊息",
+     * @SWG\Post(path="/channel/{channel_id}/feeds",
+     *   tags={"channel"},
+     *   summary="在 {channel_id} 的 feeds 發佈新訊息",
      *   description="",
      *   operationId="postUserFeeds",
      *   produces={"application/xml", "application/json"},
      *   @SWG\Parameter(
-     *     name="market_id",
+     *     name="channel_id",
      *     in="path",
      *     description="",
      *     required=true,
@@ -72,7 +72,7 @@ class marketController
      *   @SWG\Parameter(
      *     name="body",
      *     in="body",
-     *     description="在 {market_id} 的 feed 發布的訊息內容",
+     *     description="在 {channel_id} 的 feed 發布的訊息內容",
      *     required=true,
      *     @SWG\Schema(ref="#/definitions/Activity")
      *   ),
@@ -90,9 +90,9 @@ class marketController
      */
 
     /**
-     * @SWG\Get(path="/market/{market_id}/merchandises",
-     *   tags={"market"},
-     *   summary="查看 {market_id} 公開出來的商品",
+     * @SWG\Get(path="/channel/{channel_id}/merchandises",
+     *   tags={"channel"},
+     *   summary="查看 {channel_id} 公開出來的商品",
      *   description="",
      *   operationId="getUserMerchandise",
      *   produces={"application/xml", "application/json"},
@@ -117,14 +117,14 @@ class marketController
      */
 
     /**
-     * @SWG\Post(path="/market/{market_id}/merchandises",
-     *   tags={"market"},
+     * @SWG\Post(path="/channel/{channel_id}/merchandises",
+     *   tags={"channel"},
      *   summary="將商品在此商店上架",
      *   description="",
      *   operationId="getBrandstoreMerchandise",
      *   produces={"application/xml", "application/json"},
      *   @SWG\Parameter(
-     *     name="market_id",
+     *     name="channel_id",
      *     in="path",
      *     description="",
      *     required=true,
@@ -145,9 +145,9 @@ class marketController
      */
 
     /**
-     * @SWG\Post(path="/market/{market_id}/follow",
-     *   tags={"market"},
-     *   summary="follow {market_id}",
+     * @SWG\Post(path="/channel/{channel_id}/follow",
+     *   tags={"channel"},
+     *   summary="follow {channel_id}",
      *   description="",
      *   operationId="getUserFollowings",
      *   produces={"application/xml", "application/json"},
@@ -165,14 +165,14 @@ class marketController
      */
 
     /**
-     * @SWG\Post(path="/market/{market_id}/unfollow",
-     *   tags={"market"},
-     *   summary="unfollow {market_id}",
+     * @SWG\Post(path="/channel/{channel_id}/unfollow",
+     *   tags={"channel"},
+     *   summary="unfollow {channel_id}",
      *   description="",
      *   operationId="getUserFollowings",
      *   produces={"application/xml", "application/json"},
      *   @SWG\Parameter(
-     *     name="market_id",
+     *     name="channel_id",
      *     in="path",
      *     description="",
      *     required=true,
@@ -185,8 +185,8 @@ class marketController
      */
 
     /**
-     * @SWG\Get(path="/market/{market_id}/followers",
-     *   tags={"market"},
+     * @SWG\Get(path="/channel/{channel_id}/followers",
+     *   tags={"channel"},
      *   summary="Get collections of user IDs for every user following {username}",
      *   description="",
      *   operationId="getUserFollowers",

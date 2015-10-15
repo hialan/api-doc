@@ -54,7 +54,7 @@ class User
     /**
      * @SWG\Property(type="string")
      */
-    public $market_id;
+    public $channel_id;
 
     /**
      * @SWG\Property(type="string",format="date-time")
@@ -103,7 +103,7 @@ class BrandStore
     /**
      * @SWG\Property(type="string")
      */
-    public $market_id;
+    public $channel_id;
 }
 
 /**
@@ -326,9 +326,9 @@ class Order
 }
 
 /**
- * @SWG\Definition(@SWG\Xml(name="Market"))
+ * @SWG\Definition(@SWG\Xml(name="Channel"))
  */
-class Market
+class Channel
 {
 
     /**
@@ -337,8 +337,7 @@ class Market
     public $id;
 
     /**
-     * market name
-     *
+     * channel name
      * @SWG\Property(type="string")
      */
     public $name;
