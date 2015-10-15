@@ -52,6 +52,11 @@ class User
     public $picture;
 
     /**
+     * @SWG\Property(type="string")
+     */
+    public $market_id;
+
+    /**
      * @SWG\Property(type="string",format="date-time")
      */
     public $created_time;
@@ -94,6 +99,11 @@ class BrandStore
      * @SWG\Property(type="string")
      */
     public $phone;
+
+    /**
+     * @SWG\Property(type="string")
+     */
+    public $market_id;
 }
 
 /**
@@ -118,26 +128,49 @@ class Comment
     public $message;
 
     /**
-     * @SWG\Property(type="string", enum={"url", "image", "merchandise"})
-     */
-    public $attachment_type;
-
-    /**
-     * @SWG\Property(type="string")
-     */
-    public $attachment_data;
-
-    /**
      * message create time
      * @SWG\Property(type="string",format="date-time")
      */
     public $created_time;
+
+}
+
+/**
+ * @SWG\Definition(@SWG\Xml(name="Activity"))
+ */
+class Activity
+{
+    /**
+     * @SWG\Property(type="integer",format="int64")
+     */
+    public $id;
+
+    /**
+     * @SWG\Property(type="string")
+     */
+    public $message;
+
+    /**
+     * @SWG\Property(type="string",enum={"url","merchandise","activity"})
+     */
+    public $share_type;
+
+    /**
+     * @SWG\Property(type="string")
+     */
+    public $share_data;
 
     /**
      * replies of the comment
      * @SWG\Property(type="array",@SWG\Items(ref="#/definitions/Comment"))
      */
     public $comments;
+
+    /**
+     * message create time
+     * @SWG\Property(type="string",format="date-time")
+     */
+    public $created_time;
 }
 
 /**
@@ -309,4 +342,8 @@ class Market
      * @SWG\Property(type="string")
      */
     public $name;
+    /**
+     * @SWG\Property(type="string",format="date-time")
+     */
+    public $closed_time;
 }

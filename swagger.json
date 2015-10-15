@@ -819,7 +819,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Comment"
+                                "$ref": "#/definitions/Activity"
                             }
                         }
                     },
@@ -856,7 +856,7 @@
                         "description": "\u5728 {market_id} \u7684 feed \u767c\u5e03\u7684\u8a0a\u606f\u5167\u5bb9",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Comment"
+                            "$ref": "#/definitions/Activity"
                         }
                     }
                 ],
@@ -1112,6 +1112,9 @@
                 "picture": {
                     "type": "string"
                 },
+                "market_id": {
+                    "type": "string"
+                },
                 "created_time": {
                     "type": "string",
                     "format": "date-time"
@@ -1144,6 +1147,9 @@
                 },
                 "phone": {
                     "type": "string"
+                },
+                "market_id": {
+                    "type": "string"
                 }
             },
             "xml": {
@@ -1163,21 +1169,35 @@
                 "message": {
                     "type": "string"
                 },
-                "attachment_type": {
-                    "type": "string",
-                    "enum": [
-                        "url",
-                        "image",
-                        "merchandise"
-                    ]
-                },
-                "attachment_data": {
-                    "type": "string"
-                },
                 "created_time": {
                     "description": "message create time",
                     "type": "string",
                     "format": "date-time"
+                }
+            },
+            "xml": {
+                "name": "Comment"
+            }
+        },
+        "Activity": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "share_type": {
+                    "type": "string",
+                    "enum": [
+                        "url",
+                        "merchandise",
+                        "activity"
+                    ]
+                },
+                "share_data": {
+                    "type": "string"
                 },
                 "comments": {
                     "description": "replies of the comment",
@@ -1185,10 +1205,15 @@
                     "items": {
                         "$ref": "#/definitions/Comment"
                     }
+                },
+                "created_time": {
+                    "description": "message create time",
+                    "type": "string",
+                    "format": "date-time"
                 }
             },
             "xml": {
-                "name": "Comment"
+                "name": "Activity"
             }
         },
         "Merchandise": {
@@ -1313,6 +1338,10 @@
                 "name": {
                     "description": "market name",
                     "type": "string"
+                },
+                "closed_time": {
+                    "type": "string",
+                    "format": "date-time"
                 }
             },
             "xml": {

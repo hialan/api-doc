@@ -46,7 +46,7 @@ class marketController
      *     @SWG\Schema(
      *       type="array",
      *       @SWG\Items(
-     *         ref="#/definitions/Comment"
+     *         ref="#/definitions/Activity"
      *       )
      *     )
      *   ),
@@ -74,7 +74,7 @@ class marketController
      *     in="body",
      *     description="在 {market_id} 的 feed 發布的訊息內容",
      *     required=true,
-     *     @SWG\Schema(ref="#/definitions/Comment")
+     *     @SWG\Schema(ref="#/definitions/Activity")
      *   ),
      *   @SWG\Response(response=200, description="successful operation", 
      *     @SWG\Schema(
