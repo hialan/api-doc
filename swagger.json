@@ -19,294 +19,6 @@
         "http"
     ],
     "paths": {
-        "/brandstore": {
-            "post": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "Create brandstore",
-                "description": "This can only be done by the logged in user.",
-                "operationId": "createBrandStore",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "Created brand storeobject",
-                        "required": false,
-                        "schema": {
-                            "$ref": "#/definitions/BrandStore"
-                        }
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "successful operation"
-                    }
-                }
-            }
-        },
-        "/brandstore/{brandstore_id}": {
-            "get": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "\u53d6\u5f97 {brandstore_id} \u7684\u57fa\u672c\u8cc7\u8a0a",
-                "description": "",
-                "operationId": "getUserFeeds",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/BrandStore"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/brandstore/{brandstore_id}/merchandises": {
-            "get": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "\u53d6\u5f97\u5c6c\u65bc\u5546\u5e97 {brandstore_id} \u7684\u6240\u6709\u5546\u54c1\uff0c\u5305\u542b\u4e0a\u67b6\u4e2d\u4ee5\u53ca\u672a\u4e0a\u67b6\u7684",
-                "description": "",
-                "operationId": "getBrandStoreOwnMerchandise",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "The name that needs to be fetched. Use user1 for testing. ",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Merchandise"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/brandstore/{brandstore_id}/orders": {
-            "get": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "\u53d6\u5f97 {brandstore_id} \u7684\u8a02\u55ae\u6e05\u55ae",
-                "description": "",
-                "operationId": "getUserMerchandise",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "The name that needs to be fetched. Use user1 for testing. ",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Order"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/brandstore/{brandstore_id}/order/{order_id}": {
-            "get": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "\u53d6\u5f97 {brandstore_id} \u7684\u8a02\u55ae\u660e\u7d30",
-                "description": "",
-                "operationId": "getUserMerchandise",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "order_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "$ref": "#/definitions/Order"
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "\u66f4\u65b0\u8a02\u55ae\u660e\u7d30",
-                "description": "",
-                "operationId": "getUserMerchandise",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "order_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "",
-                        "required": true,
-                        "$ref": "#/definitions/Order"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/brandstore/{brandstore_id}/order/{order_id}/comment": {
-            "post": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "\u65b0\u589e\u8a02\u55ae\u7559\u8a00",
-                "description": "",
-                "operationId": "getUserMerchandise",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "order_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "",
-                        "required": true,
-                        "$ref": "#/definitions/Comment"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
         "/user": {
             "post": {
                 "tags": [
@@ -688,7 +400,9 @@
                         "in": "body",
                         "description": "",
                         "required": true,
-                        "$ref": "#/definitions/Order"
+                        "schema": {
+                            "$ref": "#/definitions/Order"
+                        }
                     }
                 ],
                 "responses": {
@@ -719,6 +433,296 @@
                 "parameters": [
                     {
                         "name": "username",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "order_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "$ref": "#/definitions/Comment"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/brandstore": {
+            "post": {
+                "tags": [
+                    "brandstore"
+                ],
+                "summary": "Create brandstore",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "createBrandStore",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Created brand storeobject",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/BrandStore"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/brandstore/{brandstore_id}": {
+            "get": {
+                "tags": [
+                    "brandstore"
+                ],
+                "summary": "\u53d6\u5f97 {brandstore_id} \u7684\u57fa\u672c\u8cc7\u8a0a",
+                "description": "",
+                "operationId": "getUserFeeds",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "brandstore_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/BrandStore"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/brandstore/{brandstore_id}/merchandises": {
+            "get": {
+                "tags": [
+                    "brandstore"
+                ],
+                "summary": "\u53d6\u5f97\u5c6c\u65bc\u5546\u5e97 {brandstore_id} \u7684\u6240\u6709\u5546\u54c1\uff0c\u5305\u542b\u4e0a\u67b6\u4e2d\u4ee5\u53ca\u672a\u4e0a\u67b6\u7684",
+                "description": "",
+                "operationId": "getBrandStoreOwnMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "brandstore_id",
+                        "in": "path",
+                        "description": "The name that needs to be fetched. Use user1 for testing. ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Merchandise"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/brandstore/{brandstore_id}/orders": {
+            "get": {
+                "tags": [
+                    "brandstore"
+                ],
+                "summary": "\u53d6\u5f97 {brandstore_id} \u7684\u8a02\u55ae\u6e05\u55ae",
+                "description": "",
+                "operationId": "getUserMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "brandstore_id",
+                        "in": "path",
+                        "description": "The name that needs to be fetched. Use user1 for testing. ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Order"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/brandstore/{brandstore_id}/order/{order_id}": {
+            "get": {
+                "tags": [
+                    "brandstore"
+                ],
+                "summary": "\u53d6\u5f97 {brandstore_id} \u7684\u8a02\u55ae\u660e\u7d30",
+                "description": "",
+                "operationId": "getUserMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "brandstore",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "order_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Order"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "brandstore"
+                ],
+                "summary": "\u66f4\u65b0\u8a02\u55ae\u660e\u7d30",
+                "description": "",
+                "operationId": "getUserMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "brandstore_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "order_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Order"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/brandstore/{brandstore_id}/order/{order_id}/comment": {
+            "post": {
+                "tags": [
+                    "brandstore"
+                ],
+                "summary": "\u65b0\u589e\u8a02\u55ae\u7559\u8a00",
+                "description": "",
+                "operationId": "getUserMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "brandstore_id",
                         "in": "path",
                         "description": "",
                         "required": true,

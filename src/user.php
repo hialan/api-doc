@@ -267,7 +267,7 @@ class UserController
      *     in="body",
      *     description="",
      *     required=true,
-     *     ref="#/definitions/Order"
+     *     @SWG\Schema(ref="#/definitions/Order")
      *   ),
      *   @SWG\Response(response=200, description="successful operation"),
      *   @SWG\Response(response=400, description="Invalid username supplied"),
