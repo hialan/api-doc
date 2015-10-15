@@ -291,3 +291,22 @@ class Order
      */
     public $closed_time;
 }
+
+/**
+ * @SWG\Definition(@SWG\Xml(name="Market"))
+ */
+class Market
+{
+
+    /**
+     * @SWG\Property(type="string")
+     */
+    public $id;
+
+    /**
+     * market name
+     *
+     * @SWG\Property(type="string")
+     */
+    public $name;
+}

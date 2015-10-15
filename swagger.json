@@ -206,46 +206,6 @@
                 }
             }
         },
-        "/user/{username}/followers": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Get collections of user IDs for every user following {username}",
-                "description": "",
-                "operationId": "getUserFollowers",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "username",
-                        "in": "path",
-                        "description": "The name that needs to be fetched. Use user1 for testing. ",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/User"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
         "/user/{username}/following": {
             "get": {
                 "tags": [
@@ -274,161 +234,6 @@
                             "type": "array",
                             "items": {
                                 "$ref": "#/definitions/User"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/user/{username}/follow": {
-            "post": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "follow {username}",
-                "description": "",
-                "operationId": "getUserFollowings",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "username",
-                        "in": "path",
-                        "description": "The name that needs to be fetched. Use user1 for testing. ",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/user/{username}/unfollow": {
-            "post": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "unfollow {username}",
-                "description": "",
-                "operationId": "getUserFollowings",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "username",
-                        "in": "path",
-                        "description": "The name that needs to be fetched. Use user1 for testing. ",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/user/{username}/feeds": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "\u770b {username} \u7684 feeds",
-                "description": "",
-                "operationId": "getUserFeeds",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "username",
-                        "in": "path",
-                        "description": "The name that needs to be fetched. Use user1 for testing. ",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Comment"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "\u5728 {username} \u7684 feeds \u767c\u4f48\u65b0\u8a0a\u606f",
-                "description": "",
-                "operationId": "postUserFeeds",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "username",
-                        "in": "path",
-                        "description": "The name that needs to be fetched. Use user1 for testing. ",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "\u5728 {username} \u7684 feed \u767c\u5e03\u7684\u8a0a\u606f\u5167\u5bb9",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Comment"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/ApiResponse"
                             }
                         }
                     },
@@ -477,84 +282,6 @@
                     },
                     "404": {
                         "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/user/{username}/market/merchandises": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "\u67e5\u770b {username} \u516c\u958b\u51fa\u4f86\u7684\u5546\u54c1",
-                "description": "",
-                "operationId": "getUserMerchandise",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "username",
-                        "in": "path",
-                        "description": "The name that needs to be fetched. Use user1 for testing. ",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Merchandise"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "\u5c07\u5546\u54c1\u5728 brandstore \u4e0a\u67b6",
-                "description": "",
-                "operationId": "getBrandstoreMerchandise",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "username",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "\u6b32\u4e0a\u67b6\u7684\u5546\u54c1",
-                        "required": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Merchandise"
-                            }
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
                     }
                 }
             }
@@ -807,161 +534,6 @@
                 }
             }
         },
-        "/brandstore/{brandstore_id}/feeds": {
-            "get": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "\u770b {brandstore_id} \u7684 feeds",
-                "description": "",
-                "operationId": "getUserFeeds",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Comment"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "\u5728 {brandstore_id} \u7684 feeds \u767c\u4f48\u65b0\u8a0a\u606f",
-                "description": "",
-                "operationId": "postUserFeeds",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "\u5728 {username} \u7684 feed \u767c\u5e03\u7684\u8a0a\u606f\u5167\u5bb9",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Comment"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/ApiResponse"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/brandstore/{brandstore_id}/follow": {
-            "post": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "follow {brandstore_id}",
-                "description": "",
-                "operationId": "getUserFollowings",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/brandstore/{brandstore_id}/unfollow": {
-            "post": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "unfollow {brandstore_id}",
-                "description": "",
-                "operationId": "getUserFollowings",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Invalid username supplied"
-                    },
-                    "404": {
-                        "description": "User not found"
-                    }
-                }
-            }
-        },
         "/brandstore/{brandstore_id}/merchandises": {
             "get": {
                 "tags": [
@@ -998,78 +570,6 @@
                     },
                     "404": {
                         "description": "User not found"
-                    }
-                }
-            }
-        },
-        "/brandstore/{bradnstore_id}/market/merchandises": {
-            "get": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "get merchandise list from specified brand store {id} ",
-                "description": "",
-                "operationId": "getBrandstoreMerchandise",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "brandstore id",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Merchandise"
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "brandstore"
-                ],
-                "summary": "\u5c07\u5546\u54c1\u5728 brandstore \u4e0a\u67b6",
-                "description": "",
-                "operationId": "getBrandstoreMerchandise",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "brandstore_id",
-                        "in": "path",
-                        "description": "brandstore id",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "\u6b32\u4e0a\u67b6\u7684\u5546\u54c1",
-                        "required": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Merchandise"
-                            }
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
                     }
                 }
             }
@@ -1242,6 +742,319 @@
                 "responses": {
                     "200": {
                         "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/market/{market_id}": {
+            "get": {
+                "tags": [
+                    "market"
+                ],
+                "summary": "\u53d6\u5f97 market \u8cc7\u8a0a",
+                "description": "",
+                "operationId": "getUserFeeds",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "market_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Market"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/market/{market_id}/feeds": {
+            "get": {
+                "tags": [
+                    "market"
+                ],
+                "summary": "\u770b {market} \u7684 feeds",
+                "description": "",
+                "operationId": "getUserFeeds",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "market_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Comment"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "market"
+                ],
+                "summary": "\u5728 {market_id} \u7684 feeds \u767c\u4f48\u65b0\u8a0a\u606f",
+                "description": "",
+                "operationId": "postUserFeeds",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "market_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "\u5728 {market_id} \u7684 feed \u767c\u5e03\u7684\u8a0a\u606f\u5167\u5bb9",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Comment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ApiResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/market/{market_id}/merchandises": {
+            "get": {
+                "tags": [
+                    "market"
+                ],
+                "summary": "\u67e5\u770b {market_id} \u516c\u958b\u51fa\u4f86\u7684\u5546\u54c1",
+                "description": "",
+                "operationId": "getUserMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "The name that needs to be fetched. Use user1 for testing. ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Merchandise"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "market"
+                ],
+                "summary": "\u5c07\u5546\u54c1\u5728\u6b64\u5546\u5e97\u4e0a\u67b6",
+                "description": "",
+                "operationId": "getBrandstoreMerchandise",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "market_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "\u6b32\u4e0a\u67b6\u7684\u5546\u54c1",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Merchandise"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/market/{market_id}/follow": {
+            "post": {
+                "tags": [
+                    "market"
+                ],
+                "summary": "follow {market_id}",
+                "description": "",
+                "operationId": "getUserFollowings",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/market/{market_id}/unfollow": {
+            "post": {
+                "tags": [
+                    "market"
+                ],
+                "summary": "unfollow {market_id}",
+                "description": "",
+                "operationId": "getUserFollowings",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "market_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/market/{market_id}/followers": {
+            "get": {
+                "tags": [
+                    "market"
+                ],
+                "summary": "Get collections of user IDs for every user following {username}",
+                "description": "",
+                "operationId": "getUserFollowers",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "merket_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/User"
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid username supplied"
@@ -1491,6 +1304,20 @@
             "xml": {
                 "name": "Order"
             }
+        },
+        "Market": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "market name",
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Market"
+            }
         }
     },
     "tags": [
@@ -1501,6 +1328,10 @@
         {
             "name": "brandstore",
             "description": "access to brand store"
+        },
+        {
+            "name": "market",
+            "description": "access to market"
         }
     ],
     "externalDocs": {

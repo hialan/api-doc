@@ -14,3 +14,9 @@
  * )
  */
 
+/**
+ * @SWG\Tag(
+ *   name="market",
+ *   description="access to market"
+ * )
+ */
