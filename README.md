@@ -28,15 +28,12 @@
 使用 swagger editor 預覽 git 上的 swagger.json
 ----------------------------------------------
 
-  * http://editor.swagger.io/#/
+  * http://editor.swagger.io/
   * File -> Import Uri
     * https://raw.githubusercontent.com/hialan/api-doc/master/swagger.json
 
 使用 swagger ui 預覽 git 上的 swagger.json
 ------------------------------------------
 
-  * http://petstore.swagger.io/
-  * 替換 swagger.json 為
-    * https://raw.githubusercontent.com/hialan/api-doc/master/swagger.json 
-
+  * http://petstore.swagger.io/?url=https://raw.githubusercontent.com/hialan/api-doc/master/swagger.json
 
