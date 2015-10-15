@@ -104,6 +104,13 @@ class channelController
      *     type="string"
      *   ),
      *   @SWG\Parameter(
+     *     name="activity_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
      *     name="body",
      *     in="body",
      *     description="",
@@ -131,9 +138,9 @@ class channelController
      *   operationId="getUserMerchandise",
      *   produces={"application/xml", "application/json"},
      *   @SWG\Parameter(
-     *     name="username",
+     *     name="channel_id",
      *     in="path",
-     *     description="The name that needs to be fetched. Use user1 for testing. ",
+     *     description="",
      *     required=true,
      *     type="string"
      *   ),
@@ -282,7 +289,7 @@ class channelController
      *   operationId="getUserFollowings",
      *   produces={"application/xml", "application/json"},
      *   @SWG\Parameter(
-     *     name="username",
+     *     name="channel_id",
      *     in="path",
      *     description="",
      *     required=true,
@@ -322,7 +329,7 @@ class channelController
      *   operationId="getUserFollowers",
      *   produces={"application/xml", "application/json"},
      *   @SWG\Parameter(
-     *     name="merket_id",
+     *     name="channel_id",
      *     in="path",
      *     description="",
      *     required=true,

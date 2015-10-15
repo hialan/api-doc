@@ -111,7 +111,7 @@ class BrandStoreController
      *   operationId="getUserMerchandise",
      *   produces={"application/xml", "application/json"},
      *   @SWG\Parameter(
-     *     name="brandstore",
+     *     name="brandstore_id",
      *     in="path",
      *     description="",
      *     required=true,
