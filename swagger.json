@@ -767,6 +767,46 @@
                 }
             }
         },
+        "/brandstore/{brandstore_id}": {
+            "get": {
+                "tags": [
+                    "brandstore"
+                ],
+                "summary": "\u53d6\u5f97 {brandstore_id} \u7684\u57fa\u672c\u8cc7\u8a0a",
+                "description": "",
+                "operationId": "getUserFeeds",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "brandstore_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/BrandStore"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
         "/brandstore/{brandstore_id}/feeds": {
             "get": {
                 "tags": [
@@ -1268,22 +1308,6 @@
                 "name": "User"
             }
         },
-        "Contact": {
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                }
-            },
-            "xml": {
-                "name": "Contact"
-            }
-        },
         "BrandStore": {
             "properties": {
                 "id": {
@@ -1292,13 +1316,21 @@
                 "name": {
                     "type": "string"
                 },
-                "contact": {
-                    "$ref": "#/definitions/Contact"
-                },
                 "status": {
                     "description": "BrandStore status",
                     "type": "integer",
                     "format": "int32"
+                },
+                "follower_count": {
+                    "description": "BrandStore follower_count",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
                 }
             },
             "xml": {

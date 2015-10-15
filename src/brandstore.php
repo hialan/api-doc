@@ -21,6 +21,34 @@ class BrandStoreController
      */
 
     /**
+     * @SWG\Get(path="/brandstore/{brandstore_id}",
+     *   tags={"brandstore"},
+     *   summary="取得 {brandstore_id} 的基本資訊",
+     *   description="",
+     *   operationId="getUserFeeds",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="brandstore_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation", 
+     *     @SWG\Schema(
+     *       type="array",
+     *       @SWG\Items(
+     *         ref="#/definitions/BrandStore"
+     *       )
+     *     )
+     *   ),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
+
+
+    /**
      * @SWG\Get(path="/brandstore/{brandstore_id}/feeds",
      *   tags={"brandstore"},
      *   summary="看 {brandstore_id} 的 feeds",

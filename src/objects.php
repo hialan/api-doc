@@ -58,28 +58,6 @@ class User
 }
 
 /**
- * @SWG\Definition(@SWG\Xml(name="Contact"))
- */
-class Contact
-{
-
-    /**  
-     * @SWG\Property(type="string")
-     */
-    public $name;
-
-    /**
-     * @SWG\Property(type="string")
-     */
-    public $email;
-
-    /**
-     * @SWG\Property(type="string")
-     */
-    public $phone;
-}
-
-/**
  * @SWG\Definition(@SWG\Xml(name="BrandStore"))
  */
 class BrandStore
@@ -96,15 +74,26 @@ class BrandStore
     public $name;
 
     /**
-     * @SWG\Property(ref="#/definitions/Contact")
-     */
-    public $contact;
-
-    /**
      * BrandStore status
      * @SWG\Property(type="integer",format="int32")
      */
     public $status;
+
+    /**
+     * BrandStore follower_count
+     * @SWG\Property(type="integer",format="int32")
+     */
+    public $follower_count;
+
+    /**
+     * @SWG\Property(type="string")
+     */
+    public $email;
+
+    /**
+     * @SWG\Property(type="string")
+     */
+    public $phone;
 }
 
 /**
