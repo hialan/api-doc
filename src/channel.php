@@ -29,7 +29,7 @@ class channelController
      */
 
     /**
-     * @SWG\Get(path="/channel/{channel_id}/feeds",
+     * @SWG\Get(path="/channel/{channel_id}/activities",
      *   tags={"channel"},
      *   summary="看 {channel} 的 feeds",
      *   description="",
@@ -56,7 +56,7 @@ class channelController
      */
 
     /**
-     * @SWG\Post(path="/channel/{channel_id}/feeds",
+     * @SWG\Post(path="/channel/{channel_id}/activity",
      *   tags={"channel"},
      *   summary="在 {channel_id} 的 feeds 發佈新訊息",
      *   description="",
@@ -75,6 +75,40 @@ class channelController
      *     description="在 {channel_id} 的 feed 發布的訊息內容",
      *     required=true,
      *     @SWG\Schema(ref="#/definitions/Activity")
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation", 
+     *     @SWG\Schema(
+     *       type="array",
+     *       @SWG\Items(
+     *         ref="#/definitions/ApiResponse"
+     *       )
+     *     )
+     *   ),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
+
+    /**
+     * @SWG\Post(path="/channel/{channel_id}/activity/{activity_id}/comment",
+     *   tags={"channel"},
+     *   summary="對一個 activity 發表回覆",
+     *   description="",
+     *   operationId="postUserFeeds",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="channel_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="body",
+     *     in="body",
+     *     description="",
+     *     required=true,
+     *     @SWG\Schema(ref="#/definitions/Comment")
      *   ),
      *   @SWG\Response(response=200, description="successful operation", 
      *     @SWG\Schema(
@@ -139,6 +173,102 @@ class channelController
      *       type="array",
      *       @SWG\Items(ref="#/definitions/Merchandise")
      *     )
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation")
+     * )
+     */
+
+    /**
+     * @SWG\Post(path="/channel/{channel_id}/merchandise/{merchandise_id}/placeorder",
+     *   tags={"channel"},
+     *   summary="購買此商品",
+     *   description="",
+     *   operationId="getBrandstoreMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="channel_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="merchandise_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="body",
+     *     in="body",
+     *     description="",
+     *     required=true,
+     *     @SWG\Schema(ref="#/definitions/Order")
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation")
+     * )
+     */
+
+    /**
+     * @SWG\Post(path="/channel/{channel_id}/merchandise/{merchandise_id}/bid",
+     *   tags={"channel"},
+     *   summary="下標商品(如果此 merchandise type=bid)",
+     *   description="",
+     *   operationId="getBrandstoreMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="channel_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="merchandise_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="body",
+     *     in="body",
+     *     description="出價",
+     *     required=true,
+     *     @SWG\Schema(type="string")
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation")
+     * )
+     */
+
+    /**
+     * @SWG\Post(path="/channel/{channel_id}/merchandise/{merchandise_id}/comment",
+     *   tags={"channel"},
+     *   summary="回覆",
+     *   description="",
+     *   operationId="getBrandstoreMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="channel_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="merchandise_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="body",
+     *     in="body",
+     *     description="出價",
+     *     required=true,
+     *     @SWG\Schema(ref="#/definitions/Comment")
      *   ),
      *   @SWG\Response(response=200, description="successful operation")
      * )

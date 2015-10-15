@@ -85,12 +85,6 @@ class BrandStore
     public $status;
 
     /**
-     * BrandStore follower_count
-     * @SWG\Property(type="integer",format="int32")
-     */
-    public $follower_count;
-
-    /**
      * @SWG\Property(type="string")
      */
     public $email;
@@ -341,6 +335,24 @@ class Channel
      * @SWG\Property(type="string")
      */
     public $name;
+
+    /**
+     * channel ownerid
+     * @SWG\Property(type="string")
+     */
+    public $owner;
+
+    /**
+     * BrandStore follower_count
+     * @SWG\Property(type="integer",format="int32")
+     */
+    public $follower_count;
+
+    /**
+     * @SWG\Property(type="string",enum={"owner","follower","whitelist","everyone"})
+     */
+    public $push_type;
+
     /**
      * @SWG\Property(type="string",format="date-time")
      */
