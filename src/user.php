@@ -364,4 +364,130 @@ class UserController
      *   @SWG\Response(response=200, description="successful operation")
      * )
      */
+
+    /**
+     * @SWG\Get(path="/user/{username}/orders",
+     *   tags={"user"},
+     *   summary="取得 {username} 的訂單清單",
+     *   description="",
+     *   operationId="getUserMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="username",
+     *     in="path",
+     *     description="The name that needs to be fetched. Use user1 for testing. ",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation", 
+     *     @SWG\Schema(
+     *       type="array",
+     *       @SWG\Items(
+     *         ref="#/definitions/Order"
+     *       )
+     *     )
+     *   ),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
+
+    /**
+     * @SWG\Get(path="/user/{username}/order/{order_id}",
+     *   tags={"user"},
+     *   summary="取得 {username} 的訂單明細",
+     *   description="",
+     *   operationId="getUserMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="username",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="order_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation", 
+     *     @SWG\Schema(
+     *       ref="#/definitions/Order"
+     *     )
+     *   ),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
+
+    /**
+     * @SWG\Put(path="/user/{username}/order/{order_id}",
+     *   tags={"user"},
+     *   summary="更新 {username} 的訂單明細",
+     *   description="",
+     *   operationId="getUserMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="username",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="order_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="body",
+     *     in="body",
+     *     description="",
+     *     required=true,
+     *     ref="#/definitions/Order"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation"),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
+
+    /**
+     * @SWG\Post(path="/user/{username}/order/{order_id}/comment",
+     *   tags={"user"},
+     *   summary="新增訂單留言",
+     *   description="",
+     *   operationId="getUserMerchandise",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     name="username",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="order_id",
+     *     in="path",
+     *     description="",
+     *     required=true,
+     *     type="string"
+     *   ),
+     *   @SWG\Parameter(
+     *     name="body",
+     *     in="body",
+     *     description="",
+     *     required=true,
+     *     ref="#/definitions/Comment"
+     *   ),
+     *   @SWG\Response(response=200, description="successful operation"),
+     *   @SWG\Response(response=400, description="Invalid username supplied"),
+     *   @SWG\Response(response=404, description="User not found")
+     * )
+     */
 }

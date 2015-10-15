@@ -256,7 +256,7 @@ class Order
     /**
      * @SWG\Property(
      *   type="string",
-     *   enum={"user","merchandise"}
+     *   enum={"user","brandstore"}
      * )
      */
     public $seller_type;
@@ -285,6 +285,12 @@ class Order
      * @SWG\Property(type="string")
      */
     public $currency;
+
+    /**
+     * replies of the comment
+     * @SWG\Property(type="array",@SWG\Items(ref="#/definitions/Comment"))
+     */
+    public $comments;
 
     /**
      * @SWG\Property(type="string",format="date-time")
