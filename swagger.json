@@ -740,7 +740,9 @@
                         "in": "body",
                         "description": "",
                         "required": true,
-                        "$ref": "#/definitions/Comment"
+                        "schema": {
+                            "$ref": "#/definitions/Comment"
+                        }
                     }
                 ],
                 "responses": {

@@ -194,7 +194,7 @@ class BrandStoreController
      *     in="body",
      *     description="",
      *     required=true,
-     *     ref="#/definitions/Comment"
+     *     @SWG\Schema(ref="#/definitions/Comment")
      *   ),
      *   @SWG\Response(response=200, description="successful operation"),
      *   @SWG\Response(response=400, description="Invalid username supplied"),
